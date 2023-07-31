@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState,useContext,useEffect } from "react";
 import FirebaseContext from "../context/firebase";
 
@@ -13,7 +13,9 @@ export default function Login(){
 
     console.log(emailAddress)
 
-    const handleLogin = () => {};
+    const handleLogin = (event) => {
+     event.preventDefault();
+    };
 
     useEffect(() => {
       document.title = "Login - Instagram";
@@ -27,6 +29,7 @@ return ( <div className="container flex mx-auto max-w-screen-md items-center h-s
      </div>
 
      <div className="flex flex-col w-2/5">
+      <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4 rounded">
         <h1 className="flex justify-center w-full">
             <img src="/images/logo.png" alt="Instagram" className="mt-2 w-6/12 mb-4" />
           </h1>
@@ -51,14 +54,23 @@ return ( <div className="container flex mx-auto max-w-screen-md items-center h-s
               <button
               disabled={isInvalid}
               type="submit"
-              className={`bg-blue-500 text-white w-full rounded h-8 font-bold
-            ${isInvalid && 'opacity-50'}`}
+              className={`bg-blue-medium text-white w-full rounded h-8 font-bold ${isInvalid && 'opacity-50'}`}
             >
               Login
             </button>
             </form>
      </div>
-</div>)
+     <div className="flex justify-center items-center flex-col w-full bg-white p-4 rounded border border-gray-primary">
+          <p className="text-sm">
+            Don't have an account?{` `}
+            <Link to="/signup" className="font-bold text-blue-medium">
+             Sign Up
+            </Link>
+          </p>
+        </div>
+        </div>
+</div>
+)
 
 
 }
