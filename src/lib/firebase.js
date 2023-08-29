@@ -1,5 +1,5 @@
-import Firebase from 'firebase/compat/app';
-import 'firebase/auth';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 const config = {
@@ -10,8 +10,8 @@ const config = {
     messagingSenderId: "975687551684",
     appId: "1:975687551684:web:8510a8d2af4ca6e3ddd791"
 };
-const fireBase = Firebase.initializeApp(config);
-const {FieldValue} = Firebase.firestore;
 
+const fireBase = firebase.initializeApp(config);
+const { FieldValue } = firebase.firestore;
 
 export {fireBase, FieldValue};
